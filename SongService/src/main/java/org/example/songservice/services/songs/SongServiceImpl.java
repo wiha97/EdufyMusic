@@ -3,6 +3,7 @@ package org.example.songservice.services.songs;
 import java.util.List;
 import java.util.UUID;
 
+import org.example.songservice.dtos.AddSongDTO;
 import org.example.songservice.dtos.ShowSongDTO;
 import org.example.songservice.entities.Song;
 import org.example.songservice.repositories.SongRepository;
@@ -31,5 +32,13 @@ public class SongServiceImpl implements SongService {
 	public ShowSongDTO getSongByUUID(UUID uuid) {
         Song song = songRepo.findById(uuid).get();
         return mapperService.songToDTO(song);
+	}
+
+	@Override
+	public ShowSongDTO addSong(AddSongDTO dto) {
+        Song song = new Song();
+        song.setUrl(dto.getStreamUrl());
+        song.setTitle(dto.getTitle());
+        return mapperService.songToDTO(songRepo.save(song));
 	}
 }
