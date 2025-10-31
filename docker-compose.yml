@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  edusongdb:
+    container_name: edusongdb
+    hostname: edusongdb
+    image: mysql:8.0
+    ports:
+      - 8900:3306
+    networks:
+      - edufynet
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: songdb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: pass
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  songservice:
+    build:
+      context: ./SongService
+      dockerfile: Dockerfile
+    container_name: songservice
+    ports:
+      - 8901:8080
+    networks:
+      - edufynet
+    depends_on:
+      edusongdb:
+        condition: service_healthy
+
+networks:
+  edufynet:
+    name: edufynetwork
+    # external: true
