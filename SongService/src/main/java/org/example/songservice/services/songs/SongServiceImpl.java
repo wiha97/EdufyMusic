@@ -30,8 +30,9 @@ public class SongServiceImpl implements SongService {
 
 	@Override
 	public ShowSongDTO getSongByUUID(UUID uuid) {
-        Song song = songRepo.findById(uuid).get();
-        return mapperService.songToDTO(song);
+        System.out.println("finding by " + uuid);
+        // Song song = songRepo.findById(uuid).get();
+        return mapperService.songToDTO(new Song());
 	}
 
 	@Override

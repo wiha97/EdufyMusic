@@ -20,9 +20,14 @@ import jakarta.persistence.Table;
 @Table(name = "songs")
 public class Song {
 
+    // Använder Long id för lokalt bruk, UUID för extern länkning
     @Id
+    @Column(name = "song_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "uuid", length = 36)
-    @GeneratedValue(strategy = GenerationType.UUID)
+    // @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
 
     @Column(name = "title", nullable = false, length = 50)
@@ -32,11 +37,19 @@ public class Song {
     private String url;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "song_genres", joinColumns = @JoinColumn(name = "song_uuid", referencedColumnName = "uuid"), inverseJoinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "genre_id"))
+    @JoinTable(name = "song_genres", joinColumns = @JoinColumn(name = "song_id"), inverseJoinColumns = @JoinColumn(name = "genre_id"))
     private List<Genre> genres = new ArrayList<>();
 
     public Song() {
     }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public List<Genre> getGenres() {
 		return genres;
