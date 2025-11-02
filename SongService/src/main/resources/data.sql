@@ -14,6 +14,20 @@ INSERT INTO genres (genre) VALUES ("Metal")
 INSERT INTO genres (genre) VALUES ("Punk")
 INSERT INTO genres (genre) VALUES ("Alternative")
 
+INSERT INTO song_genres (song_id, genre_id) VALUES (1, 1)
+INSERT INTO song_genres (song_id, genre_id) VALUES (1, 5)
+
+INSERT INTO song_genres (song_id, genre_id) VALUES (2, 1)
+INSERT INTO song_genres (song_id, genre_id) VALUES (2, 5)
 
 INSERT INTO song_genres (song_id, genre_id) VALUES (3, 1)
 INSERT INTO song_genres (song_id, genre_id) VALUES (3, 4)
+
+INSERT INTO song_genres (song_id, genre_id) VALUES (4, 1)
+INSERT INTO song_genres (song_id, genre_id) VALUES (4, 4)
+INSERT INTO song_genres (song_id, genre_id) VALUES (4, 5)
+
+INSERT INTO song_genres (song_id, genre_id) VALUES (5, 1)
+INSERT INTO song_genres (song_id, genre_id) VALUES (5, 4)
+INSERT INTO song_genres (song_id, genre_id) VALUES (5, 5)
+
