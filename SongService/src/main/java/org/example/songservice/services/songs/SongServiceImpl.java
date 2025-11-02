@@ -32,7 +32,7 @@ public class SongServiceImpl implements SongService {
 	public ShowSongDTO getSongByUUID(UUID uuid) {
         System.out.println("finding by " + uuid);
         Song foundSong = new Song();
-        foundSong = songRepo.findByUuid(uuid).get();
+        foundSong = songRepo.findById(uuid).get();
         return mapperService.songToDTO(foundSong);
 	}
 

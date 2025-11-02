@@ -13,21 +13,22 @@ INSERT INTO genres (genre) VALUES ("Pop")
 INSERT INTO genres (genre) VALUES ("Metal")
 INSERT INTO genres (genre) VALUES ("Punk")
 INSERT INTO genres (genre) VALUES ("Alternative")
-
-INSERT INTO song_genres (song_id, genre_id) VALUES (1, 1)
-INSERT INTO song_genres (song_id, genre_id) VALUES (1, 5)
-
-INSERT INTO song_genres (song_id, genre_id) VALUES (2, 1)
-INSERT INTO song_genres (song_id, genre_id) VALUES (2, 5)
-
-INSERT INTO song_genres (song_id, genre_id) VALUES (3, 1)
-INSERT INTO song_genres (song_id, genre_id) VALUES (3, 4)
-
-INSERT INTO song_genres (song_id, genre_id) VALUES (4, 1)
-INSERT INTO song_genres (song_id, genre_id) VALUES (4, 4)
-INSERT INTO song_genres (song_id, genre_id) VALUES (4, 5)
-
-INSERT INTO song_genres (song_id, genre_id) VALUES (5, 1)
-INSERT INTO song_genres (song_id, genre_id) VALUES (5, 4)
-INSERT INTO song_genres (song_id, genre_id) VALUES (5, 5)
+-- TiRO
+INSERT INTO song_genres (uuid, genre_id) VALUES ("ed6288bf-84d3-4bee-b753-4e7ef227644f", 1)
+INSERT INTO song_genres (uuid, genre_id) VALUES ("ed6288bf-84d3-4bee-b753-4e7ef227644f", 5)
+-- Hysteria
+INSERT INTO song_genres (uuid, genre_id) VALUES ("65790255-afc6-49ca-964e-37bc10a285b3", 1)
+INSERT INTO song_genres (uuid, genre_id) VALUES ("65790255-afc6-49ca-964e-37bc10a285b3", 4)
+-- TKAA
+INSERT INTO song_genres (uuid, genre_id) VALUES ("71c74694-e496-48e2-8b4a-9409c05eaaae", 1)
+INSERT INTO song_genres (uuid, genre_id) VALUES ("71c74694-e496-48e2-8b4a-9409c05eaaae", 4)
+INSERT INTO song_genres (uuid, genre_id) VALUES ("71c74694-e496-48e2-8b4a-9409c05eaaae", 5)
+-- PF
+INSERT INTO song_genres (uuid, genre_id) VALUES ("d881be1b-8b5e-4748-b9b6-bedb393416a4", 1)
+INSERT INTO song_genres (uuid, genre_id) VALUES ("d881be1b-8b5e-4748-b9b6-bedb393416a4", 4)
+INSERT INTO song_genres (uuid, genre_id) VALUES ("d881be1b-8b5e-4748-b9b6-bedb393416a4", 5)
+-- WDYGAJ
+INSERT INTO song_genres (uuid, genre_id) VALUES ("5fa9d334-0278-4066-9b99-c64e4be7db83", 1)
+INSERT INTO song_genres (uuid, genre_id) VALUES ("5fa9d334-0278-4066-9b99-c64e4be7db83", 4)
+--
 
