@@ -6,12 +6,20 @@ import java.util.List;
  * SongInfoDTO
  */
 public class SongInfoDTO {
-
     private String title;
+    private String streamUrl;
     private List<String> genres;
 
     public SongInfoDTO() {
     }
+
+	public List<String> getGenres() {
+		return genres;
+	}
+
+	public void setGenres(List<String> genres) {
+		this.genres = genres;
+	}
 
 	public String getTitle() {
 		return title;
@@ -21,11 +29,11 @@ public class SongInfoDTO {
 		this.title = title;
 	}
 
-	public List<String> getGenres() {
-		return genres;
+	public String getStreamUrl() {
+		return streamUrl;
 	}
 
-	public void setGenres(List<String> genres) {
-		this.genres = genres;
+	public void setStreamUrl(String streamUrl) {
+		this.streamUrl = streamUrl;
 	}
 }

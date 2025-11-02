@@ -17,4 +17,4 @@ spring:
       ddl-auto: create-drop
     show-sql: true
 
-song-api: http://songservice:8905/songs
+song-api: http://songservice:8080/music

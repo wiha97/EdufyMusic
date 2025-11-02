@@ -21,7 +21,7 @@ public class DTOMapperServiceImpl implements DTOMapperService {
         List<String> genres = new ArrayList<>();
         ShowSongDTO dto = new ShowSongDTO();
 
-        dto.setUuid(song.getUuid());
+        // dto.setUuid(song.getUuid());
         dto.setTitle(song.getTitle());
         dto.setStreamUrl(song.getUrl());
 

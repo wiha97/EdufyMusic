@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class ShowSongDTO {
-    private UUID uuid;
+    // private UUID uuid;
     private String title;
     private String streamUrl;
     private List<String> genres;
@@ -20,13 +20,13 @@ public class ShowSongDTO {
 		this.genres = genres;
 	}
 
-	public UUID getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(UUID uuid) {
-		this.uuid = uuid;
-	}
+	// public UUID getUuid() {
+	// 	return uuid;
+	// }
+	//
+	// public void setUuid(UUID uuid) {
+	// 	this.uuid = uuid;
+	// }
 
 	public String getTitle() {
 		return title;

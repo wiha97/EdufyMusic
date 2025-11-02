@@ -3,6 +3,9 @@ package org.example.albumservice.entites;
 import java.util.List;
 import java.util.UUID;
 
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -18,10 +21,11 @@ import jakarta.persistence.Table;
 public class Album {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    // private Long id;
 
-    @Column(name = "uuid", length = 36)
+    @Column(name = "uuid", columnDefinition = "char(36)")
+    @JdbcTypeCode(SqlTypes.CHAR)
     private UUID uuid;
 
     @Column(name = "album_title")
@@ -31,20 +35,21 @@ public class Album {
     private Long release;
 
     @ElementCollection
-    @JoinTable(name = "album_songs", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "song_uuid", length = 36)
+    @JoinTable(name = "album_songs", joinColumns = @JoinColumn(name = "uuid", columnDefinition = "char(36)"))
+    @Column(name = "song_uuid", columnDefinition = "char(36)")
+    @JdbcTypeCode(SqlTypes.CHAR)
     private List<UUID> songs;
 
     public Album() {
     }
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	// public Long getId() {
+	// 	return id;
+	// }
+	//
+	// public void setId(Long id) {
+	// 	this.id = id;
+	// }
 
 	public Long getRelease() {
 		return release;
