@@ -16,7 +16,7 @@ services:
       MYSQL_PASSWORD: pass
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 5s
+      interval: 10s
       timeout: 5s
       retries: 5
 
@@ -35,7 +35,26 @@ services:
       MYSQL_PASSWORD: pass
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 5s
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  creatordb:
+    container_name: educreatordb
+    hostname: educreatordb
+    image: mysql:8.0
+    ports:
+      - 8903:3306
+    networks:
+      - edufynet
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: creatordb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: pass
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
       timeout: 5s
       retries: 5
 
@@ -64,6 +83,19 @@ services:
       - edufynet
     depends_on:
       albumdb:
+        condition: service_healthy
+
+  artistservice:
+    build:
+      context: ./ArtistService
+      dockerfile: Dockerfile
+    container_name: artistservice
+    ports:
+      - 8907:8080
+    networks:
+      - edufynet
+    depends_on:
+      creatordb:
         condition: service_healthy
 
 networks:

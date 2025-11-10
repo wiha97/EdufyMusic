@@ -1,11 +1,8 @@
-package org.example.albumservice.dtos;
-
-import java.util.List;
+package org.example.albumservice.dtos.albums;
 
 public class ShowAlbumDTO {
     private String title;
     private String release;
-    private List<SongInfoDTO> songs;
 
     public ShowAlbumDTO() {
     }
@@ -24,13 +21,5 @@ public class ShowAlbumDTO {
 
 	public void setRelease(String release) {
 		this.release = release;
-	}
-
-	public List<SongInfoDTO> getSongs() {
-		return songs;
-	}
-
-	public void setSongs(List<SongInfoDTO> songs) {
-		this.songs = songs;
 	}
 }
